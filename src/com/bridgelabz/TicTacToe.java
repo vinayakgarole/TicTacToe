@@ -72,11 +72,24 @@ public class TicTacToe {
         }
     }
 
+    static void playerMove() {
+        System.out.println("Enter the position(1-9)");
+        int position = sc.nextInt();
+
+        while (board[position] != ' ') {
+            System.out.println("Invalid option!! Please Try Again");
+            position = sc.nextInt();
+        }
+        makeMove(position, playerLetter, board);
+        System.out.println("Player move to position " + position);
+    }
+
     public static void main(String[] args) {
 
         createBoard(board);
         getLetter();
         makeMove(3, playerLetter, board);
+        playerMove();
         showBoard(board);
     }
 }
